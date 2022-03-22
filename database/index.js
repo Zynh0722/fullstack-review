@@ -69,7 +69,7 @@ let _makeUserDoc = (repo) => new Repo({
  * @param {Array} repos list of repos from the github API
  * @returns A <Promise> that will resolve to the number of inserted items
  */
-let save = (repos) => {
+module.exports.save = (repos) => {
   return _createUser(repos[0].owner)
     .then(() =>
       Repo.insertMany(repos.map(repo => _makeUserDoc(repo))));
@@ -79,8 +79,6 @@ let save = (repos) => {
  *
  * @param {*} cb
  */
-let getTop25 = () => {
+module.exports.getTop25 = () => {
 
 };
-
-module.exports.save = save;
