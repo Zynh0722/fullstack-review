@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+mongoose.Promise = global.Promise; // Use native ES6 promises
 mongoose.connect('mongodb://localhost/fetcher', {
   useUnifiedTopology: true,
   useNewUrlParser: true
