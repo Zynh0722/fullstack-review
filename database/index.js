@@ -26,14 +26,6 @@ let repoSchema = mongoose.Schema({
 let User = mongoose.model('User', userSchema);
 let Repo = mongoose.model('Repo', repoSchema);
 
-let _checkForUser = (userId, cb) => {
-  User.where({_id: userId}).exec((err, result) => {
-    if (err) { console.err(err) }
-
-    cb(err, result);
-  });
-};
-
 /**
  * Creates a User and adds it to the database
  * given a repository owner object from the github API
