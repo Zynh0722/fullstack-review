@@ -79,7 +79,7 @@ module.exports.save = (repos) => {
  * @returns A <promise> that resolved to an array containing the 25 largest repos
  */
 module.exports.getTop25 = () => (
-  Repo.find({}).sort([['size', -1]]).limit(25).exec()
+  Repo.find({}).populate('owner').sort([['size', -1]]).limit(25).exec()
     // .then((docs) => {
     //   console.log(docs);
     //   return docs;
