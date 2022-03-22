@@ -11,13 +11,24 @@ class App extends React.Component {
     this.state = {
       repos: []
     }
-
+    this.fetch();
   }
 
   search (term) {
     console.log(`${term} was searched`);
-    // TODO
-    axios.post('http://localhost:1128/repos', { term });
+    axios.post('/repos', { term })
+      .then(() => {
+        this.fetch();
+      });
+  }
+
+  fetch () {
+    axios.get('/repos')
+      .then((res) => {
+        this.setState({
+          repos: res.data
+        });
+      });
   }
 
   render () {
