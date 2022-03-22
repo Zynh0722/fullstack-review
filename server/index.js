@@ -1,6 +1,6 @@
 const express = require('express');
 let app = express();
-let { save } = require('../database');
+let { save, getTop25 } = require('../database');
 let getReposByUsername = require('../helpers/github');
 
 app.use(express.json());
@@ -21,6 +21,8 @@ app.post('/repos', function (req, res) {
 app.get('/repos', function (req, res) {
   // TODO - your code here!
   // This route should send back the top 25 repos
+  getTop25();
+  res.send([]);
 })
 
 let port = 1128;

@@ -80,5 +80,10 @@ module.exports.save = (repos) => {
  * @param {*} cb
  */
 module.exports.getTop25 = () => {
-
+  Repo.find({}).sort('stars').limit(25).exec()
+    .then((docs) => {
+      console.log(docs);
+    })
 };
+
+module.exports.save = save;
