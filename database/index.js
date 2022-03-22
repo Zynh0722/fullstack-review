@@ -86,4 +86,3 @@ module.exports.getTop25 = () => {
     })
 };
 
-module.exports.save = save;
