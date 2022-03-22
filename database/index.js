@@ -76,13 +76,13 @@ module.exports.save = (repos) => {
 };
 
 /**
- *
- * @param {*} cb
+ * @returns A <promise> that resolved to an array containing the 25 largest repos
  */
-module.exports.getTop25 = () => {
-  Repo.find({}).sort('stars').limit(25).exec()
-    .then((docs) => {
-      console.log(docs);
-    })
-};
+module.exports.getTop25 = () => (
+  Repo.find({}).sort([['size', -1]]).limit(25).exec()
+    // .then((docs) => {
+    //   console.log(docs);
+    //   return docs;
+    // }) // Uncomment to log sent repo data
+);
 
